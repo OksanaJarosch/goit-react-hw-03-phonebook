@@ -1,4 +1,5 @@
 import { Contact, Span, Btn } from "./Contacts.styled";
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 export const Contacts = ({ myContacts, onDelete }) => {
     
@@ -12,7 +13,7 @@ export const Contacts = ({ myContacts, onDelete }) => {
                             <Span>{name}:
                             </Span>
                             <Span>{number}</Span>
-                            <Btn type="button" onClick={() => onDelete(id)}>X</Btn>
+                            <Btn type="button" onClick={() => onDelete(id)}><RiDeleteBin6Line /></Btn>
                         </Contact>
                     )
                 })}

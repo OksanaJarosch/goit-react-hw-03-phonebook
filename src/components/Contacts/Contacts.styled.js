@@ -13,7 +13,7 @@ font-size: 18px;
 export const Btn = styled.button`
 width: 28px;
 height: 28px;
-padding: 4px;
+padding-top: 4px;
 font-size: 12px bold;
 background-color: transparent;
 border: transparent;
