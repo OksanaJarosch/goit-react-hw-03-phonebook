@@ -7,6 +7,8 @@ import { Container, Title } from "./App.styled";
 import { Filter } from "./Filter/Filter"
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
+const LS_KEY = "contacts";
+
 export class App extends Component {
 
 state = {
@@ -18,6 +20,24 @@ state = {
   ],
   filter: '',
 }
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(LS_KEY);
+    const parsedContacts = JSON.parse(savedContacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem(LS_KEY, JSON.stringify(contacts));
+}
+  }
+
 
   addContact = values => {
     const inputId = nanoid();
